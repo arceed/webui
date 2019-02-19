@@ -1,0 +1,64 @@
+@import "vars";
+ 
+.el-select .el-input__inner, .el-input--suffix .el-input__inner {
+     padding: 0 $dim_spacing_large5;
+}
+.el-input__inner {
+     padding: 0 $dim_spacing_large5;
+}
+// 筛选条件板块样式
+.el-form {
+     background: $color_fg_contrast;
+     border: $dim_radius_small5 solid $color_bg_white3;
+     border-radius: $dim_radius_small3;
+     padding: $dim_spacing_medium $dim_spacing_large5;
+     margin-bottom: $dim_spacing_large2;
+}
+// table边框处理
+.el-table {
+     border: $dim_radius_small5 solid $color_bg_white3;
+}
+// table-bg切换tabs时的背景处理
+.tabs-bg .el-tabs__item.is-active {
+     color: $color_fg_contrast;
+     background: $color_bg_white2;
+}
+.tabs-bg .el-tabs__item:hover {
+     color: $color_fg_primary;
+}
+// 侧边nav及其动态样式
+.el-submenu__title:hover {
+     background-color: $color_bg_black2;
+    ;
+     color: $color_fg_contrast;
+}
+.el-submenu__title {
+     color: $color_bg_white4;
+}
+.el-menu {
+     background-color: $color_bg_black3;
+     border-right: $dim_radius_small5 solid $color_bg_black3;
+}
+.el-submenu .el-menu-item {
+     background-color: $color_bg_black1;
+     color: $color_bg_white4;
+     text-align: center;
+}
+.el-menu-item:hover, .el-menu-item.is-active {
+     background-color: $color_bg_black2;
+     color: $color_fg_contrast;
+}
+// 左侧导航li最低不能为200，修改为150
+.el-submenu .el-menu-item {
+     min-width: $dim_width_large3;
+}
+// 修改input筛选条件区域.el-form-item__content {
+     line-height: $dim_height_small0;
+}
+.el-form-item {
+     margin-bottom: $dim_spacing_medium;
+}
+.el-form--inline .el-form-item__label {
+     color: $color_fg_primary;
+     font-size: $dim_font_medium1;
+}
