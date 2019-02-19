@@ -9,6 +9,8 @@ npm install
 ```
 npm run serve
 ```
+### browse site
+http://localhost:4200
 
 ### Compiles and minifies for production
 ```
