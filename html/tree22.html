@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>startupbattle</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">             
+</head>
+  <body>
+    
+    <p id="demo" onclick="myFunction()">Click me to change my HTML content (innerHTML).</p>
+
+    <div id="app0">
+
+<div>
+<hr />
+    ======================================================================
+</div>
+    <div id="app1">
+
+    </div>
+    <script>
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed!";
+}        
+    var arr = [
+    {'id':1 ,'parentId' : 0},
+    {'id':4 ,'parentId' : 2},
+    {'id':3 ,'parentId' : 1},
+    {'id':5 ,'parentId' : 0},
+    {'id':6 ,'parentId' : 0},
+    {'id':2 ,'parentId' : 1},
+    {'id':7 ,'parentId' : 4},
+    {'id':8 ,'parentId' : 1}
+    ];
+
+ function getTree(array) {
+    var levels = [{}];
+    array.forEach(function (a) {
+        levels.length = a.level;
+        levels[a.level - 1].nodes = levels[a.level - 1].nodes || [];
+        levels[a.level - 1].nodes.push(a);
+        levels[a.level] = a;
+    });
+    return levels[0].nodes;
+}
+
+function toTree(data) {
+  let parents = data.filter(value => value.parentId == 'undefined' || value.parentId == null || value.parentId==0)
+  let childrens = data.filter(value => value.parentId !== 'undefined' && value.parentId != null && value.parentId!=0)
+  let translator = (parents, childrens) => {
+    parents.forEach((parent) => {
+      childrens.forEach((current, index) => {
+        if (current.parentId === parent.id) {
+          let temp = JSON.parse(JSON.stringify(childrens))
+          temp.splice(index, 1)
+          translator([current], temp)
+          typeof parent.childrens !== 'undefined' ? parent.childrens.push(current) : parent.childrens = [current]
+        }
+      }
+      )
+    }
+    )
+  }
+ 
+  translator(parents, childrens)
+ 
+  return parents
+}
+
+
+function unflatten(arr) {
+        var tree = [],
+        mappedArr = {},
+        arrElem,
+        mappedElem;
+        
+        // First map the nodes of the array to an object -> create a hash table.
+        for(var i = 0, len = arr.length; i < len; i++) {
+            arrElem = arr[i];
+            mappedArr[arrElem.id] = arrElem;
+            mappedArr[arrElem.id]['children'] = [];
+        }
+                        
+        for (var id in mappedArr) {
+            if (mappedArr.hasOwnProperty(id)) {
+                mappedElem = mappedArr[id];
+                // If the element is not at the root level, add it to its parent array of children.
+                if (mappedElem.parentId) {
+                    mappedArr[mappedElem['parentId']]['children'].push(mappedElem);
+                }
+                // If the element is at the root level, add it to first level elements array.
+                else {
+                    tree.push(mappedElem);
+                }
+            }
+        }
+        return tree;
+    }
+    
+    //var tree0 = unflatten(arr);
+    var tree1 = toTree(arr);
+ 
+   // console.log(tree0);
+    //document.getElementById("app0").innerHTML = "<h2>Tree</h2><pre>" +  (JSON.stringify(tree0, null, " ")) +"</pre>";
+    document.getElementById("app1").innerHTML = "<h2>Tree</h2><pre>" +  (JSON.stringify(tree1, null, " ")) +"</pre>";
+
+ </script> 
+  </body>
+</html>
