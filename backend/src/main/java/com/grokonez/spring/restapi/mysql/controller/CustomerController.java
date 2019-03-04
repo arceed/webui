@@ -45,14 +45,21 @@ public class CustomerController {
 		List<Customer> customers = new ArrayList<>();
 		repository.findAll().forEach(customers::add);
 
+		customers.forEach(e->System.out.println(e));
+
 		return customers;
 	}
 
 
-	@GetMapping("/options")
+	@GetMapping("/retrieveMenueItems")
 	public List<Option> getAllOptions() {
+		System.out.println("Get all options...");
+
+
 		List<Option> options = new ArrayList<>();
 		optionRepo.findAll().forEach(options::add);
+
+		options.forEach(e->System.out.println(e));
 
 		return options;
 	}
@@ -73,7 +80,6 @@ public class CustomerController {
 		for (MenuEntity e : data0) {
 			MenuItem ee = new MenuItem();
 			ee.setEntity(e);
-
 
 			data.add(ee);
 		}

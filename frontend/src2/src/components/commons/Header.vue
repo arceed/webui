@@ -1,12 +1,25 @@
 <template>
   <div>
   <div id="site-info">
-    <h1>CMF Rules HUB</h1>
+    <div id="site-logo"> 
+      <a href="/" id="logo"> 
+        <img src="../../assets/logo-scotiabank-lrg.png" alt="Scotiabank® Logo"> 
+      </a> 
+    </div>
+    
+    <div id="site-head">
+      <h1>CMF Rules HUB</h1>
+    </div>
+
+    <div id="head-right">
+        <button id="show-modal" @click="signOut" class="red-btn">Sign Out</button>
+    </div>
   </div>
-  <div>
+
+  <div id="main-menu">
     <el-menu
         id="mainmenubar"
-        background-color="#F10000"
+        background-color="#EB0000"
         text-color="#fff"
         active-text-color="#ffd04b"
         :default-active="activeIndex"
@@ -19,8 +32,8 @@
       <el-menu-item index="help">Help/FAQ</el-menu-item>      
     </el-menu>
   </div>
+  
   </div>
-
 </template>
 
 <script>
@@ -52,6 +65,9 @@ export default {
     },
     refreshList() {
         this.retrieveMenus();
+    }, 
+      signOut() {
+        alert("Sign Out!");
     },   
     retrieveMenus() {
       http
@@ -94,22 +110,62 @@ export default {
 };
 
 // @import 'element-theme-default';
-
 </script>
 
 <style>
 #site-info{
-    height:35px;
+    height:60px;
     width:100%;
+    line-height: 60px;
     background-color: white;
 }
 
-#site-info h1{
-  font-size:28px;
-  color: #f10000;
+#site-logo {
+  float:left;
+  width:25%;
   text-align: center;
 }
 
+#site-head {
+  float:left;
+  width:60%;
+  line-height: 30px;
+  height:100%;
+  text-align: center;
+}
+
+#site-head h1{
+  font-size:28px;
+  color: #EB0000;
+  text-align: center;
+}
+
+#head-right {
+  float:left;
+  width:15%;
+  padding-top:8px;
+
+}
+
+#main-menu {
+  background-color: #EB0000;
+}
+
+sign-in-panel h3 #sign-in-btn {
+    font-family: inherit;
+    box-sizing: content-box;
+}
+
+
+/* media="(min-height: 400px) and (min-width: 600px)" */
+
+#sign-in-btn {
+    float: left;
+    width: 5em;
+    margin-top: 7px;
+    text-align: center;
+    font-size: 0.875em;
+}
 
 /*home url*/
   ul.el-menu--horizontal li.el-menu-item {
@@ -138,4 +194,31 @@ export default {
     font-weight: 700; 
   }
 
+.red-btn {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background-color: #D81E05;
+    background-image: url(/ca/common/icons/bg-red-btn.png);
+    background-position: left top;
+    background-repeat: repeat-x;
+    color: #fff;
+    height: 1.8em;
+    line-height: 1.8em;
+    padding: 0;
+    border: 1px solid #bd0000;
+    font-size: 1.2em;
+    font-weight: normal;
+    text-align: center;
+    text-shadow: -1px -1px 0 #900;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 1px #900;
+    -moz-box-shadow: 0 1px 1px #900;
+    box-shadow: 0 1px 1px #900;
+    padding: 0 10px;
+}
 </style> 

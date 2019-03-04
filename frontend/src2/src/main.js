@@ -5,6 +5,11 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 //import addressPicker from 'vue-address-picker'
+//import '@vue/ui/dist/vue-ui.css'
+
+//import VueUi from '@vue/ui'
+
+//Vue.use(VueUi)
 
 Vue.config.productionTip = false
 

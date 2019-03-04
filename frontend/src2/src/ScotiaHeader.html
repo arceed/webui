@@ -1,0 +1,54 @@
+<div id="logoHeader" class="header">
+    <link href="/ca/common/css/sb.css" media="all" rel="stylesheet" type="text/css">
+<style>
+#sign-in-panel h3 #sign-in-btn {
+    font-family: inherit;
+    box-sizing: content-box;
+}
+</style>
+<div id="use_for_pb_only"></div>
+
+
+<!-- SIGN IN -->
+<script>
+$("#nav-tabs li:nth-child(2)").attr('class', 'a');
+	function signOnUrl () {
+		var url = "";
+		url  = document.form_signin.signon.value;
+		window.location.href = url;
+	}
+</script>
+
+<a href="/ca/en/0,,3,00.html" id="logo"> <img src="/ca/common/banners/logo-scotiabank-lrg.png" alt="Scotiabank® Logo"> </a> <a id="mobile-sign-in-btn" href="https://mobilebanking.scotiabank.com" class="red-btn">
+<h2> SIGN IN </h2>
+</a> 
+
+<!-- SIGN IN -->
+<ul id="sign-in-panel">
+  <li class="a">
+    <h3>
+      <form action="javascript:signOnUrl();" method="post" id="form_signin" name="form_signin">
+        <input type="submit" value="SIGN IN" id="sign-in-btn" class="red-btn" tabindex="-1">
+        <!--<a href="#" id="sign-in-btn" class="red-btn" onClick="this.blur();">SIGN IN</a>--> 
+        to
+        <label class="hidden" for="signon">Select a site to sign in</label>
+        <select id="signon" name="signon">
+          <option value="https://www.scotiaonline.scotiabank.com/">Scotia OnLine</option>
+          <option value="https://www1.scotiaconnect.scotiabank.com">ScotiaConnect</option>
+          <option value="http://www.scotiafx.com/">ScotiaFX</option>
+          <option value="https://www.scotiabank.can-act.com/pfs/bnslogon.asp?lang=e">Tax Payment &amp; Filing</option>
+        </select>
+      </form>
+    </h3>
+    <div class="divider"></div>
+    <p> New to Scotia OnLine? <a href="https://www.scotiaonline.scotiabank.com/online/authentication/activateFlow.bns">Activate Now</a> </p>
+    <div class="content clearfix height-items" style="height: 0px; border-width: 0px; display: none;">
+      <div class="sign-in-links">
+        <div class="divider"></div>
+        <p><a href="/ca/en/0,,361,00.html" class="securityLink">Online Security Guarantee</a></p>
+      </div>
+    </div>
+  </li>
+</ul>
+
+</div>
